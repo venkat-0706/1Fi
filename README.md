@@ -1,75 +1,189 @@
+
 # 1Fi EMI Shopping Platform
 
-A full-stack EMI-based product shopping application built as part of the 1Fi SDE1 assignment.
+A full-stack EMI-based shopping platform built for the 1Fi SDE1 assignment.
 
-The application allows users to browse smartphones, view product variants, compare EMI plans, select a preferred variant and EMI plan, and proceed with their selected plan.
+Users can browse smartphones, select product variants, compare EMI plans, and proceed with their preferred EMI option.
 
-The application uses a React frontend, Django REST Framework backend, and PostgreSQL database.
-
----
-
-## 📌 Project Overview
-
-The goal of this project is to build a simple full-stack web application where users can purchase products through flexible EMI plans.
-
-The application provides:
+## 🚀 Features
 
 - Product listing
+- Product search
 - Product details
-- Product variants
+- Multiple product variants
 - MRP and selling price
 - EMI plans
-- Monthly EMI amount
-- EMI tenure
-- Interest rate
-- Cashback information
+- Interest rate and cashback
 - Variant selection
 - EMI plan selection
-- Confirmation before proceeding
-- Search functionality
 - Responsive UI
+- Dynamic API-driven data
 
-All product and EMI information is stored in PostgreSQL and served to the React frontend through Django REST APIs.
+## 🛠️ Tech Stack
 
-No product or EMI information is hardcoded in the frontend.
+### Frontend
+- React 19
+- Vite
+- JavaScript
+- React Router
+- CSS
 
----
+### Backend
+- Python
+- Django
+- Django REST Framework
+- Django ORM
 
-# ✨ Features
+### Database
+- PostgreSQL
 
-## Product Listing
+### Tools
+- Git
+- GitHub
+- VS Code
+- Postman
 
-Users can view all available products on the home page.
+## 🏗️ Architecture
 
-Each product displays:
+```text
+React Frontend
+      ↓
+Django REST API
+      ↓
+Django ORM
+      ↓
+PostgreSQL
+````
 
-- Product name
-- Product image
-- Product description
-- Starting price
-- MRP
-- Discount
-- Number of variants
-- Number of EMI plans
-- Starting EMI amount
+## 📱 Products
 
----
+The application currently contains:
 
-## 🔎 Product Search
+* iPhone 17 Pro
+* Samsung Galaxy S24 Ultra
+* OnePlus 13
 
-Users can search for products using the search box.
+Each product has multiple variants and EMI plans.
 
-The product list updates dynamically based on the entered search text.
+## 🔌 API Endpoints
 
----
+### Get All Products
 
-## 📱 Product Details
+```http
+GET /api/products/
+```
 
-Each product has a unique URL based on its slug.
+### Get Product Details
+
+```http
+GET /api/products/<slug>/
+```
 
 Example:
 
+```http
+GET /api/products/iphone-17-pro/
+```
+
+## 🗄️ Database
+
+The database contains three main models:
+
 ```text
-/products/iphone-17-pro
-/products/samsung-galaxy-s24-ultra
-/products/oneplus-13
+Products
+   ├── Variants
+   └── EMI Plans
+```
+
+### Products
+
+* name
+* slug
+* description
+* image
+
+### Variants
+
+* storage
+* color
+* MRP
+* price
+
+### EMI Plans
+
+* monthly payment
+* tenure
+* interest rate
+* cashback
+
+## ⚙️ Setup
+
+### Backend
+
+```bash
+cd backend
+python -m venv test
+test\Scripts\activate
+pip install django djangorestframework django-cors-headers psycopg2-binary
+cd emi
+python manage.py migrate
+python manage.py seed_data
+python manage.py runserver
+```
+
+Backend:
+
+```text
+http://127.0.0.1:8000/
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:5173/
+```
+
+## 📸 Screenshots
+
+
+![Home Page](assets/home.png)
+
+![Product Details](assets/products.png)
+
+![EMI Plans](assets/iphone.png)
+![EMI Plans](assets/iphone_emi.png)
+![EMI Plans](assets/samsung.png)
+![EMI Plans](assets/samsung_emi.png)
+![EMI Plans](assets/google_pixel.png)
+![EMI Plans](assets/google_pixel_emi.png)
+```
+
+## 🚀 Project Status
+
+* Frontend: ✅
+* Backend: ✅
+* PostgreSQL: ✅
+* REST APIs: ✅
+* Seed Data: ✅
+* EMI Selection: ✅
+* Responsive UI: ✅
+
+## 👨‍💻 Author
+
+**Abbireddy Venkata Chandu**
+
+GitHub:
+[https://github.com/venkat-0706](https://github.com/venkat-0706)
+
+## 📜 License
+
+Apache License 2.0
+
