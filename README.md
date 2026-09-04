@@ -164,7 +164,7 @@ http://localhost:5173/
 ![EMI Plans](assets/samsung_emi.png)
 ![EMI Plans](assets/google_pixel.png)
 ![EMI Plans](assets/google_pixel_emi.png)
-```
+
 
 ## 🚀 Project Status
 
