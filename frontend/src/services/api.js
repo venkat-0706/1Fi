@@ -1,40 +1,30 @@
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+
+import axios from "axios";
+
+const API_URL = import.meta.env.VITE_API_URL;
 
 // Get all products
 export const getProducts = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/products/`);
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch products");
-    }
-
-    const data = await response.json();
-
-    return data;
+    const response = await axios.get(`${API_URL}/api/products/`);
+    return response.data;
   } catch (error) {
     console.error("Error fetching products:", error);
     throw error;
   }
 };
 
-
 // Get a single product using its slug
 export const getProduct = async (slug) => {
   try {
-    const response = await fetch(
-      `${API_BASE_URL}/products/${slug}/`
+    const response = await axios.get(
+      `${API_URL}/api/products/${slug}/`
     );
 
-    if (!response.ok) {
-      throw new Error("Failed to fetch product");
-    }
-
-    const data = await response.json();
-
-    return data;
+    return response.data;
   } catch (error) {
     console.error("Error fetching product:", error);
     throw error;
   }
 };
+
